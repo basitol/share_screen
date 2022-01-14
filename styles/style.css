@@ -75,6 +75,7 @@
 }
 
 .container__element-select .each {
+  position: relative;
   display: -webkit-box;
   display: -ms-flexbox;
   display: flex;
@@ -83,7 +84,8 @@
   height: 55px;
   width: 100%;
   background: #ffffff;
-  border: 1px solid rgba(179, 169, 197, 0.1);
+  -webkit-box-shadow: 0px 1px 8px rgba(18, 78, 233, 0.12);
+          box-shadow: 0px 1px 8px rgba(18, 78, 233, 0.12);
   border-radius: 5px;
   font-size: 18px;
   color: #4c4079;
@@ -95,58 +97,37 @@
           box-shadow: 0px 1px 8px rgba(18, 78, 233, 0.12);
 }
 
-.container__element-select .each .option-input {
-  -webkit-appearance: none;
-     -moz-appearance: none;
-          appearance: none;
-  position: relative;
-  top: 2.5px;
-  right: 0;
-  bottom: 0;
-  left: 0;
+.container__element-select .each input[type="radio"] {
+  position: absolute;
+  visibility: hidden;
+}
+
+.container__element-select .each .check {
+  display: block;
+  position: absolute;
+  border: 2px solid #aaaaaa;
+  border-radius: 100%;
   height: 15px;
   width: 15px;
-  margin-right: 9px;
-  -webkit-transition: all 0.15s ease-out 0s;
-  transition: all 0.15s ease-out 0s;
-  background: #fff;
-  color: #fff;
-  border-radius: 50%;
-  border: 1px solid #7a83a2;
-  cursor: pointer;
-  display: inline-block;
-  outline: none;
-  z-index: 1000;
+  top: 22px;
+  left: 20px;
+  z-index: 5;
 }
 
-.container__element-select .each .option-input:checked {
-  background: #01ae13;
-  border: none;
-}
-
-.container__element-select .each .option-input:checked::before {
-  height: 5.67px;
-  width: 7.47px;
-  padding: 2px;
-  position: absolute;
-  top: 0.9px;
-  content: "✔";
-  display: inline-block;
-  text-align: center;
-  line-height: 10px;
-}
-
-.container__element-select .each .option-input:checked::after {
-  -webkit-animation: click-wave 0.65s;
-          animation: click-wave 0.65s;
-  background: #01ae13;
-  content: "";
+.container__element-select .each .check::before {
   display: block;
-  position: relative;
-  z-index: 100;
+  position: absolute;
+  content: "";
+  border-radius: 100%;
+  height: 15px;
+  width: 15px;
+  top: 5px;
+  left: 5px;
+  margin: auto;
 }
 
 .container__element-select .each label {
+  margin-left: 23px;
   color: #4c4079;
   font-weight: 700;
 }
@@ -168,6 +149,7 @@
   text-align: center;
   width: 100%;
   height: 60px;
+  margin-top: 63px;
 }
 
 .container__element-continue input {
@@ -178,5 +160,28 @@
   outline: none;
   border: none;
   border-radius: 5px;
+}
+
+input[type="radio"]:checked ~ .check {
+  background: #01ae13;
+  border: 2px solid #01ae13;
+}
+
+input[type="radio"]:checked ~ .check::before {
+  position: absolute;
+  top: 3px;
+  left: 1.3px;
+  background-repeat: no-repeat;
+  background-image: url("../assets/check.svg");
+}
+
+input[type="radio"]:checked ~ label {
+  color: #4c4079;
+}
+
+.flex {
+  display: -webkit-box;
+  display: -ms-flexbox;
+  display: flex;
 }
 /*# sourceMappingURL=style.css.map */
